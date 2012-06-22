@@ -17,6 +17,8 @@ define(function(require) {
             var transform = this.owner.findComponent('Transform');
             var pos = transform.position;
 
+            data.ctx.translate(pos[0], pos[1]);
+
             this.graphic.render(data.ctx, pos[0], pos[1]);
         },
 

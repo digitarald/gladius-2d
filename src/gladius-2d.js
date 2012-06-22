@@ -6,7 +6,8 @@ define(function(require) {
             renderer: {
                 service: require('src/services/renderer'),
                 components: {
-                    Sprite: require('src/components/sprite')
+                    Sprite: require('src/components/sprite'),
+                    Camera: require('src/components/camera')
                 },
                 resources: {}
             }

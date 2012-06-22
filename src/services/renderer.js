@@ -22,13 +22,24 @@ define(function(require) {
         render: function() {
             if (this.canvas === null) return;
 
+            var registeredComponents = this._registeredComponents;
+            var spaces = {};
+
             var renderEvent = new Event('Render', {
                 ctx: this.ctx
             });
 
+            var cameraOwnerIds = Object.keys(registeredComponents['Camera'] || {});
+            if (cameraOwnerIds.length === 0) return;
+
+            var space = registeredComponents["Camera"][cameraOwnerIds[0]].owner.space;
+            var camera = space.findWith('Camera');
+            var transform = camera.findComponent('Transform');
+
             this.ctx.save();
-            this.ctx.fillStyle = '#000';
-            this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+            this.ctx.translate(transform.position[0], transform.position[1]);
 
             this.forEachComponent(function(component) {
                 while(component.handleQueuedEvent()) {
