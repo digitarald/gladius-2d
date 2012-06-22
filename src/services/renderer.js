@@ -45,7 +45,9 @@ define(function(require) {
                 while(component.handleQueuedEvent()) {
                     // Pass
                 }
+                this.ctx.save();
                 renderEvent(component);
+                this.ctx.restore();
             });
 
             this.ctx.restore();

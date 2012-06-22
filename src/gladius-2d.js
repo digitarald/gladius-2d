@@ -14,7 +14,8 @@ define(function(require) {
         },
 		components: {},
 		resources: {
-            Graphic: require('src/resources/graphic')
+            Graphic: require('src/resources/graphic'),
+            Circle: require('src/resources/circle')
         }
 	});
 });
