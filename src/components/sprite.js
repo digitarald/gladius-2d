@@ -15,7 +15,7 @@ define(function(require) {
         onRender: function(event) {
             var data = event.data;
             var transform = this.owner.findComponent('Transform');
-            var pos = transform.position;
+            var pos = transform.position.buffer;
 
             data.ctx.translate(pos[0], pos[1]);
 
