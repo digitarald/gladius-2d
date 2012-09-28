@@ -35,11 +35,12 @@ define(function(require) {
             var space = registeredComponents["Camera"][cameraOwnerIds[0]].owner.space;
             var camera = space.findWith('Camera');
             var transform = camera.findComponent('Transform');
+            var position = transform.position.buffer;
 
             this.ctx.save();
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-            this.ctx.translate(transform.position[0], transform.position[1]);
+            this.ctx.translate(position[0], position[1]);
 
             this.forEachComponent(function(component) {
                 while(component.handleQueuedEvent()) {
