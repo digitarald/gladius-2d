@@ -4,8 +4,8 @@ define(function(require) {
     }
 
     Graphic.prototype = {
-        render: function(ctx, x, y) {
-            ctx.drawImage(this.img, x, y);
+        render: function(ctx) {
+            ctx.drawImage(this.img, 0, 0);
         }
     };
 

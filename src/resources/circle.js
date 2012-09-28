@@ -4,7 +4,7 @@ define(function(require) {
     }
 
     Circle.prototype = {
-        render: function(ctx, x, y) {
+        render: function(ctx) {
             ctx.fillStyle = 'rgb(0, 0, 0)';
             ctx.arc(0, 0, this.radius, Math.PI*2, false);
             ctx.fill();
